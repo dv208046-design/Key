@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚡ Poderoso Hub ⚡ Key Sistema</title>
+<style>
+body { font-family: Arial, sans-serif; background: #0a0a14; color: #fff8c2; text-align:center; padding:30px; overflow-x:hidden; }
+.logo { width:220px; margin-bottom:15px; filter: drop-shadow(0 0 12px #ffd700);}
+h1 { font-size:45px; font-weight:bold; color:#ffd700; text-shadow:0 0 15px #ffd700,0 0 35px #ffaa00; margin-bottom:10px;}
+.subtitulo { font-size:18px; color:#ffe680; margin-bottom:40px;}
+.painel { background: rgba(255,215,0,0.1); border:2px solid #ffd700; padding:25px; border-radius:15px; margin:0 auto 25px auto; max-width:850px; box-shadow:0 0 25px #ffcc00; }
+.abrir-btn { background:#ffd700; color:#000; padding:15px 40px; border:none; font-weight:bold; border-radius:8px; cursor:not-allowed; opacity:0.5; font-size:1.2em; transition:0.3s;}
+.abrir-btn.active { cursor:pointer; opacity:1; }
+.passos { margin-top:30px; text-align:left; max-width:500px; margin:0 auto;}
+.passo { background: rgba(255,215,0,0.2); border:1px solid #ffd700; border-radius:10px; padding:15px; margin-bottom:15px; position:relative; font-size:18px; display:flex; justify-content:space-between; align-items:center;}
+.temporizador { background:#ffd700; color:#000; padding:5px 10px; border-radius:6px; font-weight:bold; min-width:50px; text-align:center;}
+.iniciar-btn { background:#ffaa00; border:none; border-radius:6px; padding:5px 10px; cursor:pointer; font-weight:bold; margin-left:10px; transition:0.2s;}
+.iniciar-btn:hover { background:#ffcc00;}
+.liberar-btn { background:#ffcc00; border:none; border-radius:8px; padding:15px 40px; font-weight:bold; cursor:pointer; font-size:1.2em; margin-top:20px; display:none;}
+.key-box { display:none; margin-top:30px; }
+.key-text { font-size:22px; font-weight:bold; color:#00ff00; margin-bottom:15px; }
+.copy-btn { background:#ffd700; color:#000; padding:10px 25px; border:none; border-radius:6px; font-weight:bold; cursor:pointer; transition:0.2s;}
+.copy-btn:hover { background:#ffec7f;}
+.bolinha { position: fixed; bottom:-20px; width:10px; height:10px; background:#ffd700; border-radius:50%; box-shadow:0 0 10px #ffd700,0 0 20px #ffaa00; opacity:0.8; animation:subir linear infinite; z-index:-1;}
+@keyframes subir { 0%{transform:translateY(0) scale(1); opacity:0.9;} 100%{transform:translateY(-120vh) scale(0.3); opacity:0;} }
+</style>
+</head>
+<body>
+
+<!-- 🔥 DIV INVISÍVEL QUE O SCRIPT DO HUB VAI PEGAR A KEY -->
+<div id="key" style="display:none;"></div>
+
+<img class="logo" src="https://sdmntprcentralus.oaiusercontent.com/files/00000000-d4c8-71f5-bcd1-902ade7c11ff/raw?se=2025-12-07T14%3A22%3A38Z&sp=r&sv=2024-08-04&sr=b&scid=77404090-9a08-4d2b-8c0f-fff2f1f7d0bd&skoid=a6356955-0ca0-4033-9150-c0c162458498&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-12-07T09%3A12%3A37Z&ske=2025-12-08T09%3A12%3A37Z&sks=b&skv=2024-08-04&sig=OXKLarb9z0Q6gGpoUj2VnHmwxoevQLX%2BlXvTLuSCh/o%3D">
+
+<h1>⚡ Poderoso Hub ⚡ Key Sistema</h1>
+<p class="subtitulo">Sistema de verificação de Key — Acesso seguro</p>
+
+<div class="painel" id="primeira-tela">
+    <button class="abrir-btn" id="abrirBtn">ABRIR</button>
+</div>
+
+<div class="painel" id="segunda-tela" style="display:none;">
+    <h1>⚡ Poderoso Hub ⚡ Key Sistema</h1>
+    <p class="subtitulo">Completa os passos para liberar a Key do Poderoso Hub</p>
+
+    <div class="passos">
+        <div class="passo" data-tempo="20">Entrar no Roblox
+            <div><button class="iniciar-btn">Clique para iniciar</button><span class="temporizador">--</span></div>
+        </div>
+        <div class="passo" data-tempo="56">Entrar no Discord
+            <div><button class="iniciar-btn">Clique para iniciar</button><span class="temporizador">--</span></div>
+        </div>
+        <div class="passo" data-tempo="30">Jogue e aposta
+            <div><button class="iniciar-btn">Clique para iniciar</button><span class="temporizador">--</span></div>
+        </div>
+    </div>
+    
+    <button class="liberar-btn" id="liberarBtn">Liberar Key</button>
+</div>
+
+<div class="painel key-box" id="keyTela">
+    <h1>⚡ Poderoso Hub ⚡ Key Sistema</h1>
+    <p class="subtitulo" id="keySubtitulo">Key surgindo...</p>
+    <div class="key-text" id="keyFinal"></div>
+    <button class="copy-btn" id="copyBtn">COPY</button>
+</div>
+
+<script>
+// Bolinhas subindo
+function criarBolinha() {
+    const bolinha = document.createElement("div");
+    bolinha.classList.add("bolinha");
+    bolinha.style.left = Math.random() * 100 + "vw";
+    const tamanho = Math.random() * 10 + 5;
+    bolinha.style.width = tamanho + "px";
+    bolinha.style.height = tamanho + "px";
+    bolinha.style.animationDuration = (Math.random() * 4 + 3) + "s";
+    document.body.appendChild(bolinha);
+    setTimeout(()=>{bolinha.remove();},6000);
+}
+setInterval(criarBolinha,300);
+
+// Primeira tela
+const abrirBtn=document.getElementById("abrirBtn");
+setTimeout(()=>{abrirBtn.classList.add("active"); abrirBtn.disabled=false;},5000);
+
+abrirBtn.addEventListener("click",()=>{
+    document.getElementById("primeira-tela").style.display="none";
+    document.getElementById("segunda-tela").style.display="block";
+});
+
+// Passos
+let passosCompletos=0;
+const passos=document.querySelectorAll(".passo");
+
+passos.forEach(passo=>{
+    const btn=passo.querySelector(".iniciar-btn");
+    const span=passo.querySelector(".temporizador");
+    
+    btn.addEventListener("click", ()=>{
+        btn.disabled=true;
+        btn.textContent="Aguardando ação...";
+        setTimeout(()=>{
+            let tempo=parseInt(passo.getAttribute("data-tempo"));
+            span.textContent=tempo;
+
+            const interval=setInterval(()=>{
+                tempo--;
+                span.textContent=tempo;
+                if(tempo<=0){
+                    clearInterval(interval);
+                    span.textContent="✔";
+                    passosCompletos++;
+                    checarLiberar();
+                }
+            },1000);
+
+        },2000);
+    });
+});
+
+function checarLiberar(){
+    if(passosCompletos===passos.length){
+        document.getElementById("liberarBtn").style.display="inline-block";
+    }
+}
+
+// 🔥 LISTA DAS SUAS KEYS FIXAS
+const keysFixas = [
+"FREE_gisi368heifbdk68",
+"FREE_8Hd92jsla82ms9qp",
+"FREE_a7Gs82ka9Bs72kd9",
+"FREE_Ys82ms72js91Pqow",
+"FREE_91jdla82msPq82la",
+"FREE_w82ms7d9Qp28sHla",
+"FREE_Po28s7hs9Qw8jdla",
+"FREE_x82ms19Pq8sH72la"
+];
+
+// Liberar Key final
+const liberarBtn=document.getElementById("liberarBtn");
+
+liberarBtn.addEventListener("click", ()=>{
+    liberarBtn.disabled=true;
+    liberarBtn.textContent="Aguardando...";
+
+    setTimeout(()=>{
+        // 🔥 SORTEIA UMA DAS SUAS KEYS
+        const key = keysFixas[Math.floor(Math.random() * keysFixas.length)];
+
+        // Salva no div invisível
+        document.getElementById("key").textContent = key;
+
+        // Mostra na tela
+        document.getElementById("segunda-tela").style.display="none";
+        document.getElementById("keyTela").style.display="block";
+        document.getElementById("keyFinal").textContent=key;
+
+    },4000);
+});
+
+// Copy Key
+document.getElementById("copyBtn").addEventListener("click", ()=>{
+    const key=document.getElementById("keyFinal").innerText;
+    navigator.clipboard.writeText(key);
+    alert("Key copiada!");
+});
+</script>
+
+</body>
+</html>
